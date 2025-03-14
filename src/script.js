@@ -48,7 +48,7 @@
 // const countdown = creaTimer(4000)
 // countdown()
 
-//Tuttavia questo metodo mi sembra un po eccessivo, si puo tranquillamente fare senza la arrow function e una invocazione in meno:
+//questo metodo mi sembra un po' eccessivo, si puo tranquillamente fare senza la arrow function ed una invocazione in meno:
 
 // function creaTimer(timer) {
 //     return (setTimeout(() => console.log("tempo scaduto"), timer))
@@ -64,3 +64,45 @@
 //     return (setInterval(() => console.log(messaggio), 1000))
 // }
 // stampaOgniSecondo("mi piace la crosata")
+
+
+//SNAK 6___________________________________
+
+// function creaContatoreAutomatico(tempo) {
+//     let timer = tempo * 1000
+//     let count = 0
+//     return () => setInterval(() => { console.log(count++) }, timer)
+// }
+
+// const countUp = creaContatoreAutomatico(1)
+// countUp()
+
+// anche qui si poteva tranqillamente scrivere cosi
+
+// function creaContatoreAutomatico(tempo) {
+//     let timer = tempo * 1000
+//     let count = 0
+//     return setInterval(() => { console.log(count++) }, timer)
+// }
+
+// creaContatoreAutomatico(1)
+
+
+//SNAK 7___________________________________
+
+function eseguiEferma(messaggio, tempoAvvio, tempoStop) {
+    let avvio = tempoAvvio * 1000
+    let stop = tempoStop * 1000
+    return () => {
+        const intervallo = setInterval(() => {
+            console.log(messaggio);
+        }, avvio);
+
+        setTimeout(() => {
+            clearInterval(intervallo);
+        }, stop);
+    };
+}
+const timerConIntervallo = eseguiEferma("mi piace la crostata", 1, 5)
+timerConIntervallo()
+
