@@ -1,5 +1,4 @@
-
-//SNAK 1___________________________________
+//SNACK 1_____________________________________________________________________
 
 // function somma(n1, n2) {
 //     return n1 + n2
@@ -21,13 +20,16 @@
 
 
 
-//SNAK 2___________________________________
+
+//SNACK 2_____________________________________________________________________
 
 // const quadrato = num => num * num
 // console.log(quadrato(6))
 
 
-//SNAK 3___________________________________
+
+
+//SNACK 3______________________________________________________________________
 
 // const somma = (n1, n2) => n1 + n2
 // const moltiplicazione = (n1, n2) => n1 * n2
@@ -39,7 +41,9 @@
 // console.log(eseguiOperazione(somma, 3, 4))
 
 
-//SNAK 4___________________________________
+
+
+//SNACK 4______________________________________________________________________
 
 // function creaTimer(timer) {
 //     return () => (setTimeout(() => console.log("tempo scaduto"), timer))
@@ -58,7 +62,8 @@
 
 
 
-//SNAK 5___________________________________
+
+//SNACK 5________________________________________________________________________
 
 // function stampaOgniSecondo(messaggio) {
 //     return (setInterval(() => console.log(messaggio), 1000))
@@ -66,7 +71,9 @@
 // stampaOgniSecondo("mi piace la crosata")
 
 
-//SNAK 6___________________________________
+
+
+//SNACK 6________________________________________________________________________
 
 // function creaContatoreAutomatico(tempo) {
 //     let timer = tempo * 1000
@@ -88,21 +95,46 @@
 // creaContatoreAutomatico(1)
 
 
-//SNAK 7___________________________________
 
-function eseguiEferma(messaggio, tempoAvvio, tempoStop) {
-    let avvio = tempoAvvio * 1000
-    let stop = tempoStop * 1000
+
+//SNACK 7________________________________________________________________________
+
+// function eseguiEferma(messaggio, tempoAvvio, tempoStop) {
+//     let avvio = tempoAvvio * 1000
+//     let stop = tempoStop * 1000
+//     return () => {
+//         const intervallo = setInterval(() => {
+//             console.log(messaggio);
+//         }, avvio);
+
+//         setTimeout(() => {
+//             clearInterval(intervallo);
+//         }, stop);
+//     };
+// }
+// const timerConIntervallo = eseguiEferma("mi piace la crostata", 1, 5)
+// timerConIntervallo()
+
+
+
+
+//SNACK 8________________________________________________________________________
+
+function contoAllaRovescia(tempo) {
+    let count = tempo
+    timer = tempo * 1000
     return () => {
         const intervallo = setInterval(() => {
-            console.log(messaggio);
-        }, avvio);
-
+            count = count - 1
+            console.log(count);
+        }, 1000);
         setTimeout(() => {
             clearInterval(intervallo);
-        }, stop);
+            console.log("tempo scaduto")
+
+        }, timer);
     };
 }
-const timerConIntervallo = eseguiEferma("mi piace la crostata", 1, 5)
-timerConIntervallo()
+const countDown = contoAllaRovescia(5)
+countDown()
 
