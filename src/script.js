@@ -19,3 +19,9 @@ const somma = (n1, n2) => {
 
 console.log(somma(3, 4))
 
+
+
+//SNAK 2___________________________________
+
+const quadrato = num => num * num
+console.log(quadrato(6))
