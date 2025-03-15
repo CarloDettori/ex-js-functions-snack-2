@@ -23,7 +23,7 @@
 
 //SNACK 2_____________________________________________________________________
 
-// const quadrato = num => num * num
+// const quadrato = num => num**2
 // console.log(quadrato(6))
 
 
@@ -120,21 +120,66 @@
 
 //SNACK 8________________________________________________________________________
 
-function contoAllaRovescia(tempo) {
-    let count = tempo
-    timer = tempo * 1000
-    return () => {
-        const intervallo = setInterval(() => {
-            count = count - 1
-            console.log(count);
-        }, 1000);
-        setTimeout(() => {
-            clearInterval(intervallo);
-            console.log("tempo scaduto")
+// function contoAllaRovescia(tempo) {
+//     let count = tempo
+//     timer = tempo * 1000
+//     return () => {
+//         const intervallo = setInterval(() => {
+//             count = count - 1
+//             console.log(count);
+//         }, 1000);
+//         setTimeout(() => {
+//             clearInterval(intervallo);
+//             console.log("tempo scaduto")
 
-        }, timer);
+//         }, timer);
+//     };
+// }
+// const countDown = contoAllaRovescia(5)
+// countDown()
+
+
+//SNACK 9________________________________________________________________________
+
+
+// const listaOperazioni = [
+//     3 + 1,
+//     9 - 6,
+//     5 * 4,
+//     8 / 2
+// ]
+
+// function sequenzaOperazioni(operazioni, intervallo) {
+
+//     operazioni.map((operazione, index) => {
+//         setTimeout(() => { console.log(operazione) }, index * intervallo)
+//     })
+// }
+
+
+// sequenzaOperazioni(listaOperazioni, 1000);
+
+
+
+//SNACK 10________________________________________________________________________
+
+function creaThrottler(funzione, tempoLimite) {
+    let used = true;
+    return () => {
+        if (!used) {
+            console.log("Denided!");
+            return;
+        }
+        used = false;
+        funzione();
+        setTimeout(() => {
+            used = true;
+        }, tempoLimite);
     };
 }
-const countDown = contoAllaRovescia(5)
-countDown()
 
+const throttledLog = creaThrottler(() => console.log("Eseguito!"), 2000);
+
+throttledLog();
+throttledLog();
+setTimeout(throttledLog, 2500); 
