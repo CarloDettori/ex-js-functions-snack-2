@@ -139,8 +139,9 @@
 // countDown()
 
 
-//SNACK 9________________________________________________________________________
 
+
+//SNACK 9________________________________________________________________________
 
 // const listaOperazioni = [
 //     3 + 1,
@@ -164,16 +165,16 @@
 //SNACK 10________________________________________________________________________
 
 function creaThrottler(funzione, tempoLimite) {
-    let used = true;
+    let used = false;
     return () => {
-        if (!used) {
+        if (used) {
             console.log("Denided!");
             return;
         }
-        used = false;
+        used = true;
         funzione();
         setTimeout(() => {
-            used = true;
+            used = false;
         }, tempoLimite);
     };
 }
